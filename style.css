@@ -1,0 +1,161 @@
+:root {
+    --light-cyan: hsl(193, 38%, 86%);
+    --neon-green: hsl(150, 100%, 66%);
+    --grayish-blue: hsl(217, 19%, 38%);
+    --dark-grayish-blue: hsl(217, 19%, 24%);
+    --dark-blue: hsl(218, 23%, 16%);
+    --neon-green-shadow: hsl(150, 100%, 66%) 0 0 20px 0px;
+}
+
+html {
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 28px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-blue);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 375px;
+    padding: 1rem;
+}
+
+main {
+    background-color: var(--dark-grayish-blue);
+    border-radius: .25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem 2.5rem;
+    gap: .75rem;
+    position: relative;
+    transition: all .2s ease-in-out;
+}
+
+main:has(h1.blur) {
+    transform: scaleX(-1);
+}
+
+.dynamic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .75rem;
+    transition: all .2s ease-in-out;
+    position: relative;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    font-size: 2rem;
+    background-color: var(--dark-grayish-blue);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay span {
+    display: block;
+    color: var(--neon-green);
+}
+
+h1, p {
+    display: none;
+}
+
+h1 {
+    color: var(--neon-green);
+    font-size: .3rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: all .2s ease-in-out;
+}
+
+p {
+    transition: all .2s ease-in-out;
+    color: var(--light-cyan);
+    text-align: center;
+    font-size: .8rem;
+}
+
+img {
+    display: block;
+    width: 100%;
+    transition: all .2s ease-in-out;
+}
+
+img:last-of-type {
+    display: none;
+}
+
+button {
+    width: 2.5rem;
+    aspect-ratio: 1;
+    display: block;
+    background-color: var(--neon-green);
+    background-image: url(./images/icon-dice.svg);
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    border: none;
+    transform: translateY(50%);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+button:disabled {
+    opacity: 0;
+}
+
+button:hover {
+    box-shadow: 0 0 .75rem var(--neon-green);
+}
+
+@media screen and (min-width: 375px) {
+    .container {
+        max-width: 500px;
+    }
+}
+
+@media screen and (min-width: 450px) {
+    main {
+        gap: 1rem;
+        border-radius: .5rem;
+    }
+
+    p {
+        font-size: .7rem;
+    }
+
+    img:first-of-type {
+        display: none;
+    }
+
+    img:last-of-type {
+        display: block;
+    }
+
+    button {
+        width: 2rem;
+    }
+}
